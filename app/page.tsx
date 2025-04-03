@@ -1,3 +1,6 @@
+// This code (presumably for app/page.tsx or similar) appears syntactically correct.
+// The build error reported earlier points to app/results/page.tsx.
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -30,18 +33,19 @@ export default function Home() {
               <ActiveLink href="/elections">Elections</ActiveLink>
               <ActiveLink href="/results">Results</ActiveLink>
             </nav>
-            <div className="flex items-center mr-4">
+            {/* Combined ThemeToggle and Auth Buttons into one div for better flex alignment */}
+            <div className="flex items-center space-x-4">
               <ThemeToggle />
-            </div>
-            <div>
-              <Link href="/login">
-                <Button variant="outline" className="mr-2">
-                  Login
-                </Button>
-              </Link>
-              <Link href="/register">
-                <Button>Register</Button>
-              </Link>
+              <div> {/* Kept inner div for potential future spacing needs between buttons */}
+                <Link href="/login">
+                  <Button variant="outline" className="mr-2">
+                    Login
+                  </Button>
+                </Link>
+                <Link href="/register">
+                  <Button>Register</Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -70,6 +74,7 @@ export default function Home() {
         </section>
 
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {/* Card 1: Secure Voting */}
           <Card className="transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
             <CardHeader>
               <Vote className="h-10 w-10 text-emerald-600 dark:text-emerald-500 mb-2" />
@@ -91,6 +96,7 @@ export default function Home() {
             </CardFooter>
           </Card>
 
+          {/* Card 2: Real-Time Results */}
           <Card className="transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
             <CardHeader>
               <BarChart3 className="h-10 w-10 text-emerald-600 dark:text-emerald-500 mb-2" />
@@ -112,6 +118,7 @@ export default function Home() {
             </CardFooter>
           </Card>
 
+          {/* Card 3: Tamper-Proof */}
           <Card className="transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
             <CardHeader>
               <LockKeyhole className="h-10 w-10 text-emerald-600 dark:text-emerald-500 mb-2" />
@@ -139,6 +146,7 @@ export default function Home() {
             How It Works
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Step 1: Register */}
             <div className="text-center">
               <div className="bg-emerald-100 dark:bg-emerald-900 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-emerald-600 dark:text-emerald-500" />
@@ -148,6 +156,7 @@ export default function Home() {
                 Register with your biometric data to create a secure voter identity on the blockchain.
               </p>
             </div>
+            {/* Step 2: Vote */}
             <div className="text-center">
               <div className="bg-emerald-100 dark:bg-emerald-900 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Vote className="h-8 w-8 text-emerald-600 dark:text-emerald-500" />
@@ -158,6 +167,7 @@ export default function Home() {
                 blockchain.
               </p>
             </div>
+            {/* Step 3: Verify */}
             <div className="text-center">
               <div className="bg-emerald-100 dark:bg-emerald-900 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <FileCheck className="h-8 w-8 text-emerald-600 dark:text-emerald-500" />
@@ -189,6 +199,7 @@ export default function Home() {
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Footer Column 1: Brand */}
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <Shield className="h-6 w-6 text-emerald-500" />
@@ -198,56 +209,27 @@ export default function Home() {
                 Ensuring secure, transparent, and tamper-proof elections for Kenya through blockchain technology.
               </p>
             </div>
+            {/* Footer Column 2: Quick Links */}
             <div>
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2">
-                <li>
-                  <Link href="/" className="text-gray-400 hover:text-white">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="text-gray-400 hover:text-white">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/elections" className="text-gray-400 hover:text-white">
-                    Elections
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/results" className="text-gray-400 hover:text-white">
-                    Results
-                  </Link>
-                </li>
+                <li><Link href="/" className="text-gray-400 hover:text-white">Home</Link></li>
+                <li><Link href="/about" className="text-gray-400 hover:text-white">About</Link></li>
+                <li><Link href="/elections" className="text-gray-400 hover:text-white">Elections</Link></li>
+                <li><Link href="/results" className="text-gray-400 hover:text-white">Results</Link></li>
               </ul>
             </div>
+            {/* Footer Column 3: Resources */}
             <div>
               <h4 className="text-lg font-semibold mb-4">Resources</h4>
               <ul className="space-y-2">
-                <li>
-                  <Link href="/how-it-works" className="text-gray-400 hover:text-white">
-                    How It Works
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/faq" className="text-gray-400 hover:text-white">
-                    FAQ
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/security" className="text-gray-400 hover:text-white">
-                    Security
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blockchain" className="text-gray-400 hover:text-white">
-                    Blockchain Technology
-                  </Link>
-                </li>
+                <li><Link href="/how-it-works" className="text-gray-400 hover:text-white">How It Works</Link></li>
+                <li><Link href="/faq" className="text-gray-400 hover:text-white">FAQ</Link></li>
+                <li><Link href="/security" className="text-gray-400 hover:text-white">Security</Link></li>
+                <li><Link href="/blockchain" className="text-gray-400 hover:text-white">Blockchain Technology</Link></li>
               </ul>
             </div>
+            {/* Footer Column 4: Contact */}
             <div>
               <h4 className="text-lg font-semibold mb-4">Contact</h4>
               <ul className="space-y-2">
@@ -258,7 +240,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; {new Date().getFullYear()} SecureVote Kenya. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} SecureVote Kenya. All rights reserved.</p>
           </div>
         </div>
       </footer>
