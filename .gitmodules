@@ -1,0 +1,3 @@
+[submodule "secure_vote_kenya"]
+	path = secure_vote_kenya
+	url = https://github.com/CodeWithEugene/secure_vote_kenya.git
