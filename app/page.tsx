@@ -1,9 +1,16 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Shield, Vote, BarChart3, Users, FileCheck, LockKeyhole } from "lucide-react"
-import { ActiveLink } from "@/components/layout/active-link"
-import { ThemeToggle } from "@/components/theme-toggle"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Shield, Vote, BarChart3, Users, FileCheck, LockKeyhole } from "lucide-react";
+import { ActiveLink } from "@/components/layout/active-link";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Home() {
   return (
@@ -13,12 +20,12 @@ export default function Home() {
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-2">
               <Shield className="h-8 w-8 text-emerald-600 dark:text-emerald-500" />
-              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">SecureVote Kenya</h1>
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+                SecureVote Kenya
+              </h1>
             </div>
             <nav className="hidden md:flex space-x-8">
-              <ActiveLink href="/" exact>
-                Home
-              </ActiveLink>
+              <ActiveLink href="/">Home</ActiveLink>
               <ActiveLink href="/about">About</ActiveLink>
               <ActiveLink href="/elections">Elections</ActiveLink>
               <ActiveLink href="/results">Results</ActiveLink>
@@ -88,7 +95,9 @@ export default function Home() {
             <CardHeader>
               <BarChart3 className="h-10 w-10 text-emerald-600 dark:text-emerald-500 mb-2" />
               <CardTitle>Real-Time Results</CardTitle>
-              <CardDescription>View election results in real-time with complete transparency.</CardDescription>
+              <CardDescription>
+                View election results in real-time with complete transparency.
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-gray-600 dark:text-gray-400">
@@ -107,7 +116,9 @@ export default function Home() {
             <CardHeader>
               <LockKeyhole className="h-10 w-10 text-emerald-600 dark:text-emerald-500 mb-2" />
               <CardTitle>Tamper-Proof</CardTitle>
-              <CardDescription>Blockchain technology ensures votes cannot be altered or deleted.</CardDescription>
+              <CardDescription>
+                Blockchain technology ensures votes cannot be altered or deleted.
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-gray-600 dark:text-gray-400">
@@ -124,7 +135,9 @@ export default function Home() {
         </section>
 
         <section className="bg-white dark:bg-gray-950 rounded-lg shadow-md p-8 mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">How It Works</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+            How It Works
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="bg-emerald-100 dark:bg-emerald-900 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
@@ -158,7 +171,9 @@ export default function Home() {
         </section>
 
         <section className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Ready for the 2027 Elections?</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+            Ready for the 2027 Elections?
+          </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
             Join thousands of Kenyans who trust our blockchain-based voting system for secure, transparent elections.
             The next general election will be held in 2027.
@@ -248,6 +263,5 @@ export default function Home() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
-
