@@ -113,7 +113,9 @@ export default function ResultsPage() {
             </div>
             <div>
               <Link href="/login">
-                <Button variant="outline" className="mr-2">Login</Button>
+                <Button variant="outline" className="mr-2">
+                  Login
+                </Button>
               </Link>
               <Link href="/register">
                 <Button>Register</Button>
@@ -317,7 +319,6 @@ export default function ResultsPage() {
                         Final results
                       </div>
                       <Link href={election.verificationUrl} target="_blank" rel="noopener noreferrer">
-                        <Button variant  target="_blank" rel="noopener noreferrer">
                         <Button variant="outline" size="sm" className="flex items-center">
                           Verify on Blockchain
                           <ExternalLink className="ml-2 h-4 w-4" />
@@ -340,7 +341,7 @@ export default function ResultsPage() {
         </div>
 
         <div className="bg-white dark:bg-gray-950 rounded-lg shadow-sm p-6">
-          <h2 className="text-xl font-bold mb-4">Verify Election Results</h2>ion Results</h2>
+          <h2 className="text-xl font-bold mb-4">Verify Election Results</h2>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
             Enter a transaction hash to verify the authenticity of election results on the blockchain.
           </p>
@@ -414,6 +415,5 @@ export default function ResultsPage() {
         </div>
       </footer>
     </div>
-  );
+  )
 }
-
