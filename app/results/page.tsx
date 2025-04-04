@@ -1,5 +1,4 @@
 "use client"
-
 import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -80,7 +79,6 @@ export default function ResultsPage() {
   const filteredCurrentElections = currentElections.filter((election) =>
     election.title.toLowerCase().includes(searchTerm.toLowerCase()),
   )
-
   const filteredPastElections = pastElections.filter((election) =>
     election.title.toLowerCase().includes(searchTerm.toLowerCase()),
   )
@@ -113,9 +111,7 @@ export default function ResultsPage() {
             </div>
             <div>
               <Link href="/login">
-                <Button variant="outline" className="mr-2">
-                  Login
-                </Button>
+                <Button variant="outline" className="mr-2">Login</Button>
               </Link>
               <Link href="/register">
                 <Button>Register</Button>
@@ -124,7 +120,6 @@ export default function ResultsPage() {
           </div>
         </div>
       </header>
-
       <main className="container mx-auto px-4 py-8">
         <div className="mb-6">
           <Link href="/" className="inline-flex items-center text-emerald-600 dark:text-emerald-500 hover:underline">
@@ -132,7 +127,6 @@ export default function ResultsPage() {
             Back to Home
           </Link>
         </div>
-        
         <div className="bg-white dark:bg-gray-950 rounded-lg shadow-sm p-6 mb-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
             <div>
@@ -151,20 +145,17 @@ export default function ResultsPage() {
               />
             </div>
           </div>
-          
           <Alert className="mb-6">
             <Info className="h-4 w-4" />
             <AlertDescription>
               All election results are stored on the blockchain and can be independently verified using the transaction hash.
             </AlertDescription>
           </Alert>
-          
           <Tabs defaultValue="current" onValueChange={(value) => setActiveTab(value)}>
             <TabsList className="grid w-full grid-cols-2 mb-6">
               <TabsTrigger value="current">Current Elections</TabsTrigger>
               <TabsTrigger value="past">Past Elections</TabsTrigger>
             </TabsList>
-            
             <TabsContent value="current" className="space-y-6">
               {filteredCurrentElections.length > 0 ? (
                 filteredCurrentElections.map((election) => (
@@ -184,7 +175,6 @@ export default function ResultsPage() {
                       <div className="space-y-4">
                         {election.candidates.map((candidate) => {
                           const percentage = ((candidate.votes / election.totalVotes) * 100).toFixed(2);
-                          
                           return (
                             <div key={candidate.id} className="space-y-2">
                               <div className="flex justify-between items-center">
@@ -206,7 +196,6 @@ export default function ResultsPage() {
                             </div>
                           );
                         })}
-                        
                         <div className="pt-4 border-t border-gray-200 dark:border-gray-800">
                           <div className="flex justify-between items-center">
                             <p className="font-medium">Total Votes</p>
@@ -238,7 +227,6 @@ export default function ResultsPage() {
                 </div>
               )}
             </TabsContent>
-            
             <TabsContent value="past" className="space-y-6">
               <div className="mb-6">
                 <Label htmlFor="filter-year" className="mb-2 block">Filter by Year</Label>
@@ -254,7 +242,6 @@ export default function ResultsPage() {
                   </SelectContent>
                 </Select>
               </div>
-              
               {filteredPastElections.length > 0 ? (
                 filteredPastElections.map((election) => (
                   <Card key={election.id} className="mb-6">
@@ -274,7 +261,6 @@ export default function ResultsPage() {
                         {election.candidates.map((candidate, index) => {
                           const percentage = ((candidate.votes / election.totalVotes) * 100).toFixed(2);
                           const isWinner = index === 0; // Assuming first candidate is winner for demo
-                          
                           return (
                             <div key={candidate.id} className="space-y-2">
                               <div className="flex justify-between items-center">
@@ -305,7 +291,6 @@ export default function ResultsPage() {
                             </div>
                           );
                         })}
-                        
                         <div className="pt-4 border-t border-gray-200 dark:border-gray-800">
                           <div className="flex justify-between items-center">
                             <p className="font-medium">Total Votes</p>
@@ -339,13 +324,11 @@ export default function ResultsPage() {
             </TabsContent>
           </Tabs>
         </div>
-
         <div className="bg-white dark:bg-gray-950 rounded-lg shadow-sm p-6">
           <h2 className="text-xl font-bold mb-4">Verify Election Results</h2>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
             Enter a transaction hash to verify the authenticity of election results on the blockchain.
           </p>
-          
           <div className="flex flex-col md:flex-row gap-4">
             <Input 
               placeholder="Enter transaction hash (0x...)" 
@@ -353,7 +336,6 @@ export default function ResultsPage() {
             />
             <Button>Verify</Button>
           </div>
-          
           <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
             <h3 className="font-medium mb-2">How Verification Works</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
@@ -369,7 +351,6 @@ export default function ResultsPage() {
           </div>
         </div>
       </main>
-      
       <footer className="bg-gray-900 text-white py-12 mt-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
